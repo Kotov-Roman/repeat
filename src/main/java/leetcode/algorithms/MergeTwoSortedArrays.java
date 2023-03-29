@@ -2,7 +2,7 @@ package leetcode.algorithms;
 
 import java.util.Arrays;
 
-public class MergeToSortedArrays {
+public class MergeTwoSortedArrays {
 
     public static void main(String[] args) {
         int[] first = {1, 3, 7};

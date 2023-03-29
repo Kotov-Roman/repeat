@@ -1,7 +1,9 @@
-package leetcode.algorithms;
+package leetcode.algorithms.linkedLists;
+
+import leetcode.algorithms.linkedLists.helpers.ListNode;
 
 //https://leetcode.com/problems/merge-two-sorted-lists/
-public class MergeTwoSortedLists {
+public class MergeTwoSortedLinkedLists {
 
     public static void main(String[] args) {
 //        ListNode head1 = null;
@@ -11,8 +13,8 @@ public class MergeTwoSortedLists {
         head1.next = h1n2;
         h1n2.next = h1n3;
 
-        ListNode head2 = null;
-//        ListNode head2 = new ListNode(1);
+//        ListNode head2 = null;
+        ListNode head2 = new ListNode(1);
         ListNode h2n2 = new ListNode(3);
         ListNode h2n3 = new ListNode(4);
         head2.next = h2n2;
@@ -20,10 +22,7 @@ public class MergeTwoSortedLists {
 
         ListNode listNode = mergeTwoLists(head1, head2);
 
-        while (listNode != null) {
-            System.out.print(listNode.val + ", ");
-            listNode = listNode.next;
-        }
+        listNode.printList();
 
     }
 
@@ -68,27 +67,7 @@ public class MergeTwoSortedLists {
 
         return head;
     }
+
 }
 
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(val);
-    }
-}
