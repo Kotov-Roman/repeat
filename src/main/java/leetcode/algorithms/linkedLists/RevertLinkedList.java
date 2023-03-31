@@ -1,6 +1,6 @@
 package leetcode.algorithms.linkedLists;
 
-import leetcode.algorithms.linkedLists.helpers.ListNode;
+import leetcode.helpers.ListNode;
 
 import java.util.List;
 

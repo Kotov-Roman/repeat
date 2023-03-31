@@ -1,6 +1,6 @@
 package leetcode.algorithms.linkedLists;
 
-import leetcode.algorithms.linkedLists.helpers.ListNode;
+import leetcode.helpers.ListNode;
 
 //https://leetcode.com/problems/merge-two-sorted-lists/
 public class MergeTwoSortedLinkedLists {
