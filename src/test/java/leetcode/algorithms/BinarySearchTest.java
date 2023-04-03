@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class BinarySearchTest {
-
     private BinarySearch binarySearch;
 
     @Before
@@ -15,26 +14,34 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void binarySearchForIndexOfNumber_NumberIsNotPresent_IndexIsMinus1() {
-        //given
-        int[] list = {1, 2, 3, 4, 7, 9, 10, 15};
-        //when
-        int index = binarySearch.binarySearchForIndexOfNumber(list, -2);
-        //then
-        Assert.assertEquals(-1, index );
+    public void binarySearchForIndexOfNumber_WhenElementIsPresent_ThenReturnIndex() {
+        int[] nums = {1, 3, 4, 7, 9, 10};
+        int target = 4;
+        int expectedIndex = 2;
+        int actualIndex = binarySearch.binarySearchForIndexOfNumber(nums, target);
+        Assert.assertEquals(expectedIndex, actualIndex);
     }
 
     @Test
-    public void binarySearchForIndexOfNumber_NumberIsPresent_IndexIsCorrect() {
-        //given
-        int[] list = {1, 2, 3, 4, 7, 9, 10, 15};
-        //when
-        int index = binarySearch.binarySearchForIndexOfNumber(list, 1);
-        int index2 = binarySearch.binarySearchForIndexOfNumber(list, 3);
-        int index3 = binarySearch.binarySearchForIndexOfNumber(list, 15);
-        //then
-        Assert.assertEquals(0, index);
-        Assert.assertEquals(2, index2);
-        Assert.assertEquals(7, index3);
+    public void binarySearchForIndexOfNumber_WhenElementIsNotPresent_ThenReturnNegativeOne() {
+        int[] nums = {1, 3, 4, 7, 9, 10};
+        int target = 2;
+        int expectedIndex = -1;
+        int actualIndex = binarySearch.binarySearchForIndexOfNumber(nums, target);
+        Assert.assertEquals(expectedIndex, actualIndex);
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void binarySearchForIndexOfNumber_WhenArrayIsEmpty_ThenThrowIllegalArgumentException() {
+        int[] nums = {};
+        int target = 2;
+        binarySearch.binarySearchForIndexOfNumber(nums, target);
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void binarySearchForIndexOfNumber_WhenArrayIsNull_ThenThrowIllegalArgumentException() {
+        int[] nums = null;
+        int target = 2;
+        binarySearch.binarySearchForIndexOfNumber(nums, target);
     }
 }

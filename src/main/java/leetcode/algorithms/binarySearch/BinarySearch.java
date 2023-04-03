@@ -1,31 +1,25 @@
 package leetcode.algorithms.binarySearch;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 public class BinarySearch {
 
     public int binarySearchForIndexOfNumber(int[] nums, int target) {
-        int indexOfMiddle;
-        int tempIndex = 0;
-        while (true) {
-            if (nums.length == 1 && nums[0] != target){
-                return -1;
-            }
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("Input array is empty or null.");
+        }
+        return binarySearch(nums, target, 0, nums.length - 1);
+    }
 
-            indexOfMiddle = nums.length / 2;
-
-            if (nums[indexOfMiddle] == target) {
-                return tempIndex + indexOfMiddle;
-            } else if (nums[indexOfMiddle] < target) {
-                tempIndex += indexOfMiddle;
-                //take right part
-                nums = Arrays.copyOfRange(nums, indexOfMiddle, nums.length);
-            } else {
-                //take left part
-                nums = Arrays.copyOf(nums, nums.length / 2);
-            }
-
+    private int binarySearch(int[] nums, int target, int startIndex, int endIndex) {
+        if (startIndex > endIndex) {
+            return -1;
+        }
+        int middleIndex = (startIndex + endIndex) / 2;
+        if (nums[middleIndex] == target) {
+            return middleIndex;
+        } else if (nums[middleIndex] < target) {
+            return binarySearch(nums, target, middleIndex + 1, endIndex);
+        } else {
+            return binarySearch(nums, target, startIndex, middleIndex - 1);
         }
     }
 }
