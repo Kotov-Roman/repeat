@@ -1,6 +1,7 @@
 package leetcode.algorithms.binarySearch;
 
 //https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/
+//class can contain duplicates like here: {1, 0, 1, 1, 1};
 public class SearchInRotatedSortedArray2 extends SearchInRotatedSortedArray{
 
 //    public boolean search(int[] nums, int target) {
